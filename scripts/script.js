@@ -50,7 +50,7 @@ console.log("False when NaN :", Boolean(NaN));
 console.log("False when undefined :", Boolean(undefined));
 console.log("True when number :", Boolean(23));
 console.log("True when {} :", Boolean({}));
-*/
+
 const money = 0;
 if (money) {
   console.log(`You have zero balance ${money}`);
@@ -59,7 +59,22 @@ if (money) {
 }
 // Here 0 is a falsy value so it executes the else statement
 console.log("9" - "5"); //4
-console.log("19" - "13" + "17"); //617
+console.log("19" - "13" + "17");
 console.log("19" - "13" + 17); //23
 console.log("123" < 57); //false
-console.log(5 + 6 + "4" + 9 - 4 - 2); //1143
+console.log(5 + 6 + "4" + 9 - 4 - 2);
+*/
+
+let day = "monday";
+
+switch (day) {
+  case "sunday":
+    console.log("Weekend :)");
+    break;
+  case "monday":
+    console.log("Seminar Day ");
+    break;
+  default:
+    console.log("Regular Day!");
+    break;
+}
