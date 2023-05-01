@@ -1,25 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap");
 
-body {
-  background: radial-gradient(#e5989b, #d5bdaf, #415a77);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin: 20px;
 }
-h1 {
+
+/* body {
+  background: linear-gradient(to right, #e5989b, #415a77, #415a77, #e5989b);
+} */
+#h1 {
+  background: url("https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg?auto=compress&cs=tinysrgb&w=400");
+  -webkit-background-clip: text;
+  background-clip: text;
   font-family: "Ubuntu", sans-serif;
-  color: #1b4332;
+  color: transparent;
+  font-size: 80px;
+  text-align: center;
 }
-.box {
-  height: 400px;
-  width: 600px;
-  border: 2px solid;
-  border-radius: 16px;
-  border-color: #1b4332;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+
+h1::after {
+  content: " (●'◡'●)";
+}
+
+button {
+  height: 40px;
+  width: 90px;
 }
