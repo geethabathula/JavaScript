@@ -7,11 +7,8 @@
   margin: 20px;
 }
 
-/* body {
-  background: linear-gradient(to right, #e5989b, #415a77, #415a77, #e5989b);
-} */
 #h1 {
-  background: url("https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg?auto=compress&cs=tinysrgb&w=400");
+  background: url("https://images.pexels.com/photos/4722090/pexels-photo-4722090.jpeg?auto=compress&cs=tinysrgb&w=400");
   -webkit-background-clip: text;
   background-clip: text;
   font-family: "Ubuntu", sans-serif;
@@ -27,4 +24,12 @@ h1::after {
 button {
   height: 40px;
   width: 90px;
+}
+
+.buttonCardBG {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 190px;
+  background-color: rgb(79, 137, 225);
 }
