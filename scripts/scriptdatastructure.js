@@ -598,7 +598,7 @@ let namesArr = name.split(" ");
 
 console.log("Split OP: ", namesArr);
 console.log("Join OP: ", namesArr.join(','));
-*/
+
 //Padding a string 
 
 const message = "Hello Geetha";
@@ -617,3 +617,141 @@ console.log(maskCreditCardNumber(123446778988596));//xxxxxxxxxxx8596
 //Repeat
 const message2 = "Bad Weather... All Departures Delayed... "
 console.log(message2.repeat(5));
+
+const greet = (greeting) => {
+    return (name) => console.log(`${greeting} ${name}`);
+}
+//This works because of closure 
+const greeterHello = greet("Hello");
+greeterHello("Geetha Bathula"); //Hello Geetha Bathula
+greeterHello("Swetha Bathula"); //Hello Swetha Bathula
+
+
+//Call Method
+const indigo = {
+    airline: "INDIGO",
+    airLineCode: "IDG",
+    bookings: [],
+    book(flightNum, name) {
+        console.log(`${name} has booked a seat on ${this.airline} flight ${this.airLineCode}${flightNum}`);
+        this.bookings.push({ flight: `${this.airLineCode} ${flightNum}`, name });
+    }
+}
+indigo.book(56, "Geetha");
+indigo.book(789, "Swetha");
+console.log(indigo.bookings);
+
+const airAsia = {
+    airline: "AIRASIA",
+    airLineCode: "ASA",
+    bookings: [],
+}
+const book = indigo.book;
+
+//Does not work because 'this' keyword doesn't apply
+// book(78, "Sarah");
+book.call(airAsia, 45, "Peter Parker");
+console.log(airAsia.bookings);
+
+//Apply Method
+const flightData = [583, 'Mario'];
+book.apply(airAsia, flightData);//not used anymore 
+// if u want to enter data using an array use call with spread
+book.call(indigo, ...flightData);
+
+//Bind Method 
+//more useful and reusable compared to call.
+const bookAirAsia = book.bind(airAsia);
+const bookindigo = book.bind(indigo);
+bookAirAsia(345, "Jennifer Aniston");
+
+//we can set a flightnum(is constant) and then only pass the name.
+const bookAirAsia67 = book.bind(airAsia, 67);
+//is called partial application bcs already one of the argument is already set
+bookAirAsia67("Honey Willams");
+
+//Bind With Event Listeners 
+let button = document.createElement("button");
+button.textContent = "Buy a Plane Ticket";
+document.body.append(button);
+//Adding methods and properties to indigo object
+indigo.planes = 300;
+// indigo.buyPlane = function () {
+//     console.log(this);
+//     this.planes++;
+//     console.log(this.planes);
+// }
+// button.addEventListener('click', indigo.buyPlane); 
+// //we get NAN bcs this keyword is the button element
+//this means we need to manually tell the js
+
+indigo.buyPlane = function () {
+    console.log(this);
+    this.planes++;
+    console.log(this.planes);
+}
+button.addEventListener('click', indigo.buyPlane.bind(indigo));
+//Partial Application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.1);
+//addVAT = value => value + value * 0.23;
+console.log(addVAT(200));
+
+
+//Immediate Function call executing only once
+(function () {
+    console.log("This will execute only once");
+})();
+(() => console.log("This will execute only once"))
+    ();
+*/
+
+//Closure
+const secureBooking = function () {
+    let passengerCount = 0;
+
+    return function () {
+        passengerCount++;
+        console.log(`${passengerCount}`);
+    }
+}
+
+const booker = secureBooking();
+booker();//1
+booker();//2
+booker();//3
+//even after getting out of execution context 
+//closure is still remembers the variable so the value is getting 
+//incremented on evry call
+
+// let f;
+// const g = function () {
+//     const a = 23;
+//     f = function () {
+//         console.log(a * 2);
+//     }
+// }
+// const h = function () {
+//     const b = 777;
+//     f = function () {
+//         console.log(b * 2);
+//     }
+// }
+
+// g();
+// f();
+// //g funstion already finished execution
+// // but because of closure concept f is able to access 'a'
+// //Re-assigning f function 
+// h();
+// f();
+
+(function () {
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
+    document.querySelector('body').addEventListener('click', function () {
+        header.style.color = "blue";
+    });
+})();
