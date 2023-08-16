@@ -120,4 +120,49 @@ GBP,Pound sterling:GBP,Pound sterling
 USD,United States dollar moreonarrays.js:117:13
 EUR,Euro moreonarrays.js:117:13
 GBP,Pound sterling
+
+const dogsJulia = [3, 5, 2, 12, 7];
+const dogsKate = [4, 1, 15, 8, 3];
+const dogsJuliaCorrected = dogsJulia.slice(1, 3);
+
+const checkDogs = function (array) {
+    array.forEach(function (val, index) {
+        if (val >= 3) {
+            console.log(`Dog number ${index + 1} is an adult, and is ${val} years old`);
+        }
+        else {
+            console.log(`Dog number ${index + 1} is still a puppy🐶`);
+        }
+    });
+}
+checkDogs(dogsJuliaCorrected);
+checkDogs(dogsKate);
 */
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// //same as forEach has acess to value, index and array for map,filter and reduce
+// //map method
+// const euroToUSD = 1.08;
+// let movementsUSD = movements.map(
+//     function (val) {
+//         let convert = val * euroToUSD;
+//         return convert;
+//     }
+// );
+// //filter method
+// console.log(movementsUSD);
+// let onlyDeposit = movements.filter(
+//     function (val) {
+//         if (val > 0) {
+//             return val;
+//         }
+//     }
+// );
+// //reduce method
+// console.log(onlyDeposit);
+// const total = movements.reduce(
+//     function (val, cI, i, arr) {
+//         console.log(val, i);
+//         val = val + cI;
+//         return val;
+//     });
+// console.log(total);
