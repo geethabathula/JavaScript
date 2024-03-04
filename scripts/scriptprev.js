@@ -200,7 +200,6 @@ const person = {
   firstName: "Geetha Supriya",
   lastName: "Bathula",
   eyeColor: "brown",
-  friends: ["RamSai", "Harika"],
   birthYear: 1999,
   // calcAge: function () {
   //   console.log("using this, this");
@@ -272,11 +271,18 @@ while (rep <= 5) {
 }
 */
 
-console.log(document.querySelector("h1").textContent); //prints JavaScript
+// console.log(document.querySelector("h1").textContent); //prints JavaScript
 
-document.querySelector("h1").textContent = "Hello World !!! 😁"; //sets the h1 element.
-console.log((document.querySelector("h1").textContent = "Hello World !!! 😁"));
+// document.querySelector("h1").textContent = "Hello World !!! 😁"; //sets the h1 element.
+// console.log((document.querySelector("h1").textContent = "Hello World !!! 😁"));
 
-console.log(document.querySelector("#color").value);
-document.querySelector("#color").value = "#aaaabc";
-console.log(document.querySelector("#color").value);
+// console.log(document.querySelector("#color").value);
+// document.querySelector("#color").value = "#aaaabc";
+// console.log(document.querySelector("#color").value);
+const person = {
+  firstName: "Geetha Supriya",
+  lastName: "Bathula",
+  eyeColor: "brown",
+  birthYear: 1999,
+  hasDriversLicense: true,
+};
