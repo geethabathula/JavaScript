@@ -67,14 +67,14 @@ console.log(me.at(4));//v
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (let movement of movements) {
-    if (movement > 0) {
-        console.log(`You deposited ${movement}`);
-    }
-    else {
-        console.log(`You withdrew ${Math.abs(movement)}`);
-    }
-}
+// for (let movement of movements) {
+//     if (movement > 0) {
+//         console.log(`You deposited ${movement}`);
+//     }
+//     else {
+//         console.log(`You withdrew ${Math.abs(movement)}`);
+//     }
+// }
 console.log("----------FOREACH----------");
 movements.forEach(function (movement) {
     if (movement > 0) {
@@ -85,27 +85,38 @@ movements.forEach(function (movement) {
     }
 })
 
+movements.forEach(function (movementElement, index, movementArray) {
+    console.log(`${movementElement} at index ${index} of array${movementArray}`);
+});
+
 const numbers = [1, 2, 3, 4, 5];
 
-const square = (n, index, array) => console.log(`CurrentElement is ${n} at index${index} of ${array} value = ${(n * n)}`);
+const square = (n, index, array) => console.log(`Square Of numbers CurrentElement is ${n} at index${index} of ${array} value = ${(n * n)}`);
 numbers.forEach(square);
+*/
 //for Each --------------------------Ends
-
 /*
 //for Each on maps and sets
+const cUniq = new Set(['g', 'e', 'e', 't', 'h', 'a']);
+
 const currencies = new Map([
     ['USD', 'United States dollar'],
     ['EUR', 'Euro'],
     ['GBP', 'Pound sterling'],
 ]);
-// currencies.forEach(function (val, key, map) {
-//     console.log(`${key}:${val}`);
-// })
+//A set doesn't have keys values and indexes here val key 
+//doesnt make any sense so returning val or key is same 
+currencies.forEach(function (val, key, map) {
+    console.log(`${key}:${val}`);
+})
 
 const currenciesSet = new Set(currencies);
-// currenciesSet.forEach(function (val, key, set) {
-//     console.log(`${key}:${val}`);
-// })//key and value are same so it returns
+currenciesSet.forEach(function (val, key, set) {
+    console.log(`set ${val[0]} ${val[1]}`);
+})//key and value are same so it returns same 
+//instead as the output is an array i used array index to get
+//the neat output
+*/
 /*
 USD,United States dollar:USD,United States dollar moreonarrays.js:107:13
 EUR,Euro:EUR,Euro moreonarrays.js:107:13
@@ -166,3 +177,32 @@ checkDogs(dogsKate);
 //         return val;
 //     });
 // console.log(total);
+
+//Fill Method 
+console.log([1, 2, 3, 4, 5, 6, 7]);
+
+//another way to create an array
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(8);
+// creates an empty array of length
+console.log(x);
+
+let s = x.fill(1);
+//original array is also modified 
+console.log("s =", s, "x = ", x)
+
+//by using fill method we can also specify
+//the start index
+console.log(x.fill(8, 3));//starts filling 1 from 3rd index
+
+//we can also use it as a slice option
+console.log(x.fill(2, 3, 5));
+
+//we can use fill method on any array
+
+//adding data programatically or dynamically
+let hundredRandomArray = Array.from({ length: 100 }, () => {
+    let num = Math.floor(Math.random() * 100) + 1;
+    return num;
+});

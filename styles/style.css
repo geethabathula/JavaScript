@@ -19,6 +19,7 @@
 
 h1::after {
   content: " (●'◡'●)";
+  text-align: center;
 }
 
 button {
